@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutUs;
+use App\Models\ContactInfo;
+use App\Models\Services;
+use App\Models\ServiceList;
+use App\Models\Features;
+use App\Models\FeatureList;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,17 +19,25 @@ class AdminController extends Controller
 
     public function about(){
 
-        return view ('admin.about');
+
+        $entries = AboutUs::all();
+        return view ('admin.about', compact('entries'));
     }
 
     public function service(){
 
-        return view ('admin.services');
+        $services = Services::all();
+        $categories = ServiceList::with('subcategories')->get();
+        return view ('admin.services', compact('services', 'categories'));
     }
 
-    public function features(){
+    public function features()
+    {
 
-        return view ('admin.features');
+        $features = Features::all();
+        $featureLists = FeatureList::with('featureListMores')->get();
+
+        return view ('admin.features', compact('features', 'featureLists'));
     }
 
     public function blog(){
@@ -53,7 +67,9 @@ class AdminController extends Controller
 
     public function contactUs(){
 
-        return view ('admin.contact');
+        $contacts = ContactInfo::all();
+
+        return view ('admin.contact', compact('contacts'));
     }
 
 }

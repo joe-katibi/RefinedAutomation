@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('linkedln');
             $table->integer('status')->default(0);
             $table->string('created_by');
-            $table->string('edited_by');
+            $table->string('edited_by')->nullable();
             $table->timestamps();
         });
     }

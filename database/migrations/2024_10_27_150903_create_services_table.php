@@ -16,20 +16,20 @@ return new class extends Migration
             $table->string('slogan');
             $table->string('description');
             $table->integer('status')->default(0);
-            $table->string('created_by');
-            $table->string('edited_by');
+            $table->string('created_by')->nullable();
+            $table->string('edited_by')->nullable();
             $table->timestamps();
         });
 
         Schema::create('services_list', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('services_id');
+            $table->unsignedBigInteger('services_id')->nullable();
             $table->string('name');
             $table->string('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->integer('status')->default(0);
-            $table->string('created_by');
-            $table->string('edited_by');
+            $table->string('created_by')->nullable();
+            $table->string('edited_by')->nullable();
             $table->timestamps();
         });
 
@@ -39,8 +39,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('sub_title');
             $table->integer('status')->default(0);
-            $table->string('created_by');
-            $table->string('edited_by');
+            $table->string('created_by')->nullable();
+            $table->string('edited_by')->nullable();
             $table->timestamps();
         });
     }

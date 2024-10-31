@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FeaturesController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\ContactInfoController;
 
 // Route::get('/', function () {
 //     return view('home.master');
@@ -42,6 +46,73 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/offer', [AdminController::class, 'offer'])->name('admin.offer');
     Route::get('/admin/faqs', [AdminController::class, 'faqs'])->name('admin.faqs');
     Route::get('/admin/contact-us', [AdminController::class, 'contactUs'])->name('admin.contact');
+
+    Route::post('/about-us', [AboutUsController::class, 'store'])->name('about_us.store');
+    Route::get('/about-us/{id}/edit', [AboutUsController::class, 'edit'])->name('about_us.edit');
+    Route::put('/about-us/{id}', [AboutUsController::class, 'update'])->name('about_us.update');
+    Route::put('/about-us/{id}/inactivate', [AboutUsController::class, 'inactivate'])->name('about_us.inactivate');
+
+    Route::post('/contacts', [ContactInfoController::class, 'store'])->name('contacts.store');
+    Route::get('/contacts/{id}/edit', [ContactInfoController::class, 'edit'])->name('contacts.edit');
+    Route::put('/contacts/{id}', [ContactInfoController::class, 'update'])->name('contacts.update');
+    Route::put('/contacts/{id}/activate', [ContactInfoController::class, 'activate'])->name('contacts.activate');
+
+    Route::post('/services', [ServicesController::class, 'storeService'])->name('services.store');
+    Route::post('/services/category', [ServicesController::class, 'storeCategory'])->name('services_list.store');
+    Route::put('/services/{id}/activate', [ServicesController::class, 'activateService'])->name('services.activate');
+
+    // Routes for Editing and Updating
+    Route::get('/services/{id}/edit', [ServicesController::class, 'editService'])->name('services.edit');
+    Route::put('/services/{id}', [ServicesController::class, 'updateService'])->name('services.update');
+
+    Route::get('/services/category/{id}/edit', [ServicesController::class, 'editCategory'])->name('services_list.edit');
+    Route::put('/services/category/{id}', [ServicesController::class, 'updateCategory'])->name('services_list.update');
+
+    Route::get('/services-list-more/create', [ServicesController::class, 'create'])->name('services_list_more.create');
+
+    Route::get('/features', [FeaturesController::class, 'index'])->name('features.index');
+    Route::post('/features', [FeaturesController::class, 'storeFeature'])->name('features.store');
+    Route::post('/feature-list', [FeaturesController::class, 'storeFeatureList'])->name('feature_list.store');
+   Route::post('/feature-list-more', [FeaturesController::class, 'storeFeatureListMore'])->name('feature_list_more.store');
+
+
+
+
+    Route::prefix('features')->group(function () {
+
+
+        // Store new feature
+        Route::post('/store', [FeaturesController::class, 'storeFeature'])->name('features.store');
+
+        // Store new feature category
+        Route::post('/category/store', [FeaturesController::class, 'storeFeatureList'])->name('feature_list.store');
+
+        // Store new subcategory for a feature category
+        Route::post('/subcategory/store', [FeaturesController::class, 'storeFeatureListMore'])->name('feature_list_more.store');
+
+        // Edit feature
+        Route::get('/{feature}/edit', [FeaturesController::class, 'editFeature'])->name('features.edit');
+        Route::put('/{feature}', [FeaturesController::class, 'updateFeature'])->name('features.update');
+
+        // Inactivate feature
+        Route::put('/{feature}/inactivate', [FeaturesController::class, 'inactivateFeature'])->name('features.inactivate');
+
+       // Edit feature category
+       Route::get('/category/{category}/edit', [FeaturesController::class, 'editFeatureList'])->name('feature_list.edit');
+       Route::put('/category/{category}', [FeaturesController::class, 'updateFeatureList'])->name('feature_list.update');
+
+       // Inactivate feature category
+       Route::put('/category/{category}/inactivate', [FeaturesController::class, 'inactivateFeatureList'])->name('feature_list.inactivate');
+
+        // Edit subcategory
+        Route::get('/subcategory/{subcategory}/edit', [FeaturesController::class, 'editFeatureListMore'])->name('feature_list_more.edit');
+        Route::put('/subcategory/{subcategory}', [FeaturesController::class, 'updateFeatureListMore'])->name('feature_list_more.update');
+
+        // Inactivate subcategory
+        Route::put('/subcategory/{subcategory}/inactivate', [FeaturesController::class, 'inactivateFeatureListMore'])->name('feature_list_more.inactivate');
+    });
+
+
 
     Route::get('/user/message', [MessageController::class, 'message'])->name('user.message');
     Route::get('/dashboard', [MessageController::class, 'dashboard'])->name('dashboard');

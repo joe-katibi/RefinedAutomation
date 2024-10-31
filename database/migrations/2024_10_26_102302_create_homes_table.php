@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('description');
             $table->integer('status')->default(0);
             $table->string('created_by');
-            $table->string('edited_by');
+            $table->string('edited_by')->nullable();
             $table->timestamps();
         });
 
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->unsignedBigInteger('home_id');
             $table->integer('status')->default(0);
             $table->string('created_by');
-            $table->string('edited_by');
+            $table->string('edited_by')->nullable();
             $table->timestamps();
         });
     }

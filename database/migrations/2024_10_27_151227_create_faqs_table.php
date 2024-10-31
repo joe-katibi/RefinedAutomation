@@ -16,19 +16,19 @@ return new class extends Migration
             $table->string('slogan');
             $table->string('description');
             $table->integer('status')->default(0);
-            $table->string('created_by');
+            $table->string('created_by')->nullable();
             $table->string('edited_by')->nullable();
             $table->timestamps();
         });
 
         Schema::create('faqs_list', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('faqs_id');
+            $table->unsignedBigInteger('faq_id');
             $table->string('image');
             $table->string('title');
             $table->string('sub_title');
             $table->integer('status')->default(0);
-            $table->string('created_by');
+            $table->string('created_by')->nullable();
             $table->string('edited_by')->nullable();
             $table->timestamps();
         });

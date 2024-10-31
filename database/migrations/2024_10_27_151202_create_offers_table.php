@@ -16,33 +16,35 @@ return new class extends Migration
             $table->string('slogan');
             $table->string('description');
             $table->integer('status')->default(0);
-            $table->string('created_by');
+            $table->string('created_by')->nullable();
             $table->string('edited_by')->nullable();
             $table->timestamps();
         });
 
         Schema::create('offers_list', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('offers_id');
+            $table->unsignedBigInteger('offer_id');
+            $table->unsignedBigInteger('offers_list_id')->nullable();
             $table->string('header');
             $table->string('image');
             $table->string('title');
             $table->string('description');
             $table->integer('status')->default(0);
-            $table->string('created_by');
+            $table->string('created_by')->nullable();
             $table->string('edited_by')->nullable();
             $table->timestamps();
         });
 
         Schema::create('offers_list_more', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('offers_list_id');
+            $table->unsignedBigInteger('offers_list_id')->nullable();
+            $table->unsignedBigInteger('offers_id');
             $table->string('header');
             $table->string('image');
             $table->string('title');
             $table->string('description');
             $table->integer('status')->default(0);
-            $table->string('created_by');
+            $table->string('created_by')->nullable();
             $table->string('edited_by')->nullable();
             $table->timestamps();
         });

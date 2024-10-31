@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('instagram');
             $table->string('linkedln');
             $table->string('user_status')->default(0);
-            $table->string('created_by');
+            $table->string('created_by')->nullable();
             $table->string('edited_by')->nullable();
             $table->timestamps();
         });

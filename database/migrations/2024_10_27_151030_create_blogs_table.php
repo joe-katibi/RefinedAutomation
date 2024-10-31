@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('blogs', function (Blueprint $table) {
@@ -16,21 +13,23 @@ return new class extends Migration
             $table->string('slogan');
             $table->string('description');
             $table->integer('status')->default(0);
-            $table->string('created_by');
+            $table->string('created_by')->nullable();
             $table->string('edited_by')->nullable();
             $table->timestamps();
         });
 
         Schema::create('blogs_list', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('blogs_id');
+            $table->unsignedBigInteger('blog_id');
             $table->string('image');
             $table->string('name');
             $table->string('description');
             $table->integer('status')->default(0);
-            $table->string('created_by');
+            $table->string('created_by')->nullable();
             $table->string('edited_by')->nullable();
             $table->timestamps();
+
+           $table->foreign('blog_id')->references('id')->on('blogs')->onDelete('cascade');
         });
 
         Schema::create('blogs_list_more', function (Blueprint $table) {
@@ -39,15 +38,14 @@ return new class extends Migration
             $table->string('title');
             $table->string('sub_title');
             $table->integer('status')->default(0);
-            $table->string('created_by');
-            $$table->string('edited_by')->nullable();
+            $table->string('created_by')->nullable();
+            $table->string('edited_by')->nullable();
             $table->timestamps();
+
+            $table->foreign('blogs_list_id')->references('id')->on('blogs_list')->onDelete('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('blogs_list_more');

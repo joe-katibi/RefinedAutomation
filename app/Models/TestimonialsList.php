@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Testimonial extends Model
+class TestimonialsList extends Model
 {
 
     // Define the table name if it's different from the plural of the model name
-    protected $table = 'testimonials';
+    protected $table = 'testimonials_list';
+
 
     protected $fillable = [
-        'slogan', 'description', 'status', 'created_by', 'edited_by'
+        'name', 'avatar', 'profession', 'testimony', 'status', 'created_by', 'edited_by'
     ];
 }

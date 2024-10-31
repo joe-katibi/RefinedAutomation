@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('slogan');
             $table->string('description');
             $table->integer('status')->default(0);
-            $table->string('created_by');
+            $table->string('created_by')->nullable();
             $table->string('edited_by')->nullable();
             $table->timestamps();
         });
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('profession');
             $table->string('testimony');
             $table->integer('status')->default(0);
-            $table->string('created_by');
+            $table->string('created_by')->nullable();
             $table->string('edited_by')->nullable();
             $table->timestamps();
         });

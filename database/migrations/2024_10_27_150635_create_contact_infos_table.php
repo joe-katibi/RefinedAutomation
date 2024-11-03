@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('whatsapp');
             $table->string('instagram');
             $table->string('linkedln');
+            $table->string('website');
             $table->integer('status')->default(0);
             $table->string('created_by');
             $table->string('edited_by')->nullable();

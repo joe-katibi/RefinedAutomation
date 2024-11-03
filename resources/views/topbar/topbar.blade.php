@@ -2,9 +2,11 @@
     <div class="row gx-0 align-items-center">
         <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
             <div class="d-flex flex-wrap">
-                <a href="#" class="text-muted small me-4"><i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
-                <a href="tel:+01234567890" class="text-muted small me-4"><i class="fas fa-phone-alt text-primary me-2"></i>+01234567890</a>
-                <a href="mailto:example@gmail.com" class="text-muted small me-0"><i class="fas fa-envelope text-primary me-2"></i>Example@gmail.com</a>
+                @foreach($contacts as $contact)
+                <a href="#" class="text-muted small me-4"><i class="fas fa-map-marker-alt text-primary me-2"></i>{{ $contact->location}}</a>
+                <a href="tel:+01234567890" class="text-muted small me-4"><i class="fas fa-phone-alt text-primary me-2"></i>{{ $contact->phone}}</a>
+                <a href="mailto:example@gmail.com" class="text-muted small me-0"><i class="fas fa-envelope text-primary me-2"></i>{{ $contact->email}}</a>
+                @endforeach
             </div>
         </div>
         <div class="col-lg-4 text-center text-lg-end">
@@ -18,7 +20,7 @@
                         {{-- <a href="#" class="dropdown-item"><i class="fas fa-comment-alt me-2"></i> Inbox</a>
                         <a href="#" class="dropdown-item"><i class="fas fa-bell me-2"></i> Notifications</a>
                         <a href="#" class="dropdown-item"><i class="fas fa-cog me-2"></i> Account Settings</a> --}}
-                        
+
                     <form method="POST" action="{{ route('logout') }}">
                     @csrf
                         <a href="{{ route('logout') }}" class="dropdown-item"><i class="fas fa-power-off me-2"></i> Log Out</a>

@@ -4,10 +4,12 @@
             <div class="col-md-6 col-lg-6 col-xl-4">
                 <div class="footer-item">
                     <a href="index.html" class="p-0">
-                        <h4 class="text-white"><i class="fas fa-search-dollar me-3"></i>Refined Automations</h4>
+                        @foreach($contacts as $contact)
+                        <h4 class="text-white"><i class="fas fa-search-dollar me-3"></i>{{ $contact->name }}</h4>
                         <!-- <img src="img/logo.png" alt="Logo"> -->
+                        @endforeach
                     </a>
-                    <p class="mb-4">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet, consectetur adipiscing...</p>
+                    {{-- <p class="mb-4">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet, consectetur adipiscing...</p> --}}
                     <div class="d-flex">
                         {{-- <a href="#" class="bg-primary d-flex rounded align-items-center py-2 px-3 me-2">
                             <i class="fas fa-apple-alt text-white"></i>
@@ -29,50 +31,52 @@
             <div class="col-md-6 col-lg-6 col-xl-2">
                 <div class="footer-item">
                     <h4 class="text-white mb-4">Quick Links</h4>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> About Us</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Feature</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Attractions</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Tickets</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Blog</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Contact us</a>
+                    <a href="{{ route('about.index') }}"><i class="fas fa-angle-right me-2"></i> About Us</a>
+                    <a href="{{ route('features.index') }}"><i class="fas fa-angle-right me-2"></i> Feature</a>
+                    {{-- <a href="#"><i class="fas fa-angle-right me-2"></i> Attractions</a> --}}
+                    {{-- <a href="#"><i class="fas fa-angle-right me-2"></i> Tickets</a> --}}
+                    {{-- <a href="#"><i class="fas fa-angle-right me-2"></i> Blog</a> --}}
+                    <a href="{{ route('contact.index') }}"><i class="fas fa-angle-right me-2"></i> Contact us</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item">
                     <h4 class="text-white mb-4">Support</h4>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
+                    {{-- <a href="#"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
                     <a href="#"><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a>
                     <a href="#"><i class="fas fa-angle-right me-2"></i> Disclaimer</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Support</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> FAQ</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Help</a>
+                    <a href="#"><i class="fas fa-angle-right me-2"></i> Support</a> --}}
+                    <a href="{{ route('faqs.index') }}"><i class="fas fa-angle-right me-2"></i> FAQ</a>
+                    {{-- <a href="#"><i class="fas fa-angle-right me-2"></i> Help</a> --}}
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item">
                     <h4 class="text-white mb-4">Contact Info</h4>
+                    @foreach($contacts as $contact)
                     <div class="d-flex align-items-center">
                         <i class="fas fa-map-marker-alt text-primary me-3"></i>
-                        <p class="text-white mb-0">123 Street New York.USA</p>
+                        <p class="text-white mb-0">{{ $contact->location}}</p>
                     </div>
                     <div class="d-flex align-items-center">
                         <i class="fas fa-envelope text-primary me-3"></i>
-                        <p class="text-white mb-0">info@example.com</p>
+                        <p class="text-white mb-0">{{ $contact->email}}</p>
                     </div>
                     <div class="d-flex align-items-center">
                         <i class="fa fa-phone-alt text-primary me-3"></i>
-                        <p class="text-white mb-0">(+012) 3456 7890</p>
+                        <p class="text-white mb-0">{{ $contact->phone}}</p>
                     </div>
                     <div class="d-flex align-items-center mb-4">
                         <i class="fab fa-firefox-browser text-primary me-3"></i>
-                        <p class="text-white mb-0">Yoursite@ex.com</p>
+                        <p class="text-white mb-0">{{ $contact->website }}</p>
                     </div>
                     <div class="d-flex">
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="#"><i class="fab fa-facebook-f text-white"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="#"><i class="fab fa-twitter text-white"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="#"><i class="fab fa-instagram text-white"></i></a>
-                        <a class="btn btn-primary btn-sm-square rounded-circle me-0" href="#"><i class="fab fa-linkedin-in text-white"></i></a>
+                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{{ $contact->facebook }}"><i class="fab fa-facebook-f text-white"></i></a>
+                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{{ $contact->twitter }}"><i class="fab fa-twitter text-white"></i></a>
+                        <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{{ $contact->instagram }}"><i class="fab fa-instagram text-white"></i></a>
+                        <a class="btn btn-primary btn-sm-square rounded-circle me-0" href="{{ $contact->linkedin }}"><i class="fab fa-linkedin-in text-white"></i></a>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

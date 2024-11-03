@@ -30,6 +30,7 @@ Route::get('/faqs', [HomeController::class, 'faqs'])->name('faqs.index');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact.index');
 Route::get('/get-started', [HomeController::class, 'getStarted'])->name('started.index');
 Route::get('/features', [HomeController::class, 'features'])->name('features.index');
+Route::get('/footer', [HomeController::class, 'footer'])->name('footer.index');
 
 
 // Route::get('/dashboard', function () {
@@ -43,6 +44,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/about', [AdminController::class, 'about'])->name('admin.about');
+    Route::get('/admin/business-consulting', [AdminController::class, 'consulting'])->name('admin.consulting');
+    Route::get('/admin/expertise', [AdminController::class, 'expertise'])->name('admin.expertise');
     Route::get('/admin/services', [AdminController::class, 'service'])->name('admin.service');
     Route::get('/admin/features', [AdminController::class, 'features'])->name('admin.features');
     Route::get('/admin/blog', [AdminController::class, 'blog'])->name('admin.blog');
@@ -142,19 +145,23 @@ Route::middleware('auth')->group(function () {
     Route::put('offers-list/{id}/status', [OfferController::class, 'updateOffersListStatus'])->name('offers_list.status');
     Route::put('offers-list-more/{id}/status', [OfferController::class, 'updateOffersListMoreStatus'])->name('offers_list_more.status');
 
-    Route::get('faqs', [FaqsController::class, 'index'])->name('faqs.index');
+    // Route::get('faqs', [FaqsController::class, 'index'])->name('faqs.index');
     Route::post('faqs', [FaqsController::class, 'storeFaq'])->name('faqs.store');
     Route::post('faqs/list', [FaqsController::class, 'storeFaqsList'])->name('faqs.list.store');
     Route::put('faqs/{id}/inactivate', [FaqsController::class, 'inactivate'])->name('faqs.inactivate');
     Route::put('faqs/list/{id}/inactivate', [FaqsController::class, 'inactivateFaqsList'])->name('faqs.list.inactivate');
 
-
-
-
-
+    //Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');// routes/web.php
+    Route::resource('messages', MessageController::class);
+    Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
+    Route::post('/user/messages', [MessageController::class, 'userStore'])->name('messages.userStore');
+    Route::post('/messages/{message}/reply', [MessageController::class, 'replyStore'])->name('messages.replyStore');
 
     Route::get('/user/message', [MessageController::class, 'message'])->name('user.message');
     Route::get('/dashboard', [MessageController::class, 'dashboard'])->name('dashboard');
+
+
+
 });
 
 require __DIR__.'/auth.php';

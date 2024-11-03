@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('slogan');
-            $table->string('description');
+            $table->text('description');
             $table->integer('status')->default(0);
             $table->string('created_by')->nullable();
             $table->string('edited_by')->nullable();
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('services_id')->nullable();
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->string('image')->nullable();
             $table->integer('status')->default(0);
             $table->string('created_by')->nullable();
@@ -37,7 +37,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('services_list_id');
             $table->string('title');
-            $table->string('sub_title');
+            $table->text('sub_title');
             $table->integer('status')->default(0);
             $table->string('created_by')->nullable();
             $table->string('edited_by')->nullable();

@@ -10,7 +10,7 @@ class ContactInfo extends Model
 
     protected $fillable = [
         'name',
-        'location',
+        'address',
         'phone',
         'email',
         'facebook',
@@ -18,6 +18,7 @@ class ContactInfo extends Model
         'whatsapp',
         'instagram',
         'linkedln',
+        'website',
         'status',
         'created_by',
         'edited_by',

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\AboutUs;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AboutUsController extends Controller
 {
@@ -12,13 +13,12 @@ class AboutUsController extends Controller
         $request->validate([
             'slogan' => 'required|string',
             'description' => 'required|string',
-            'created_by' => 'required|string',
         ]);
 
         AboutUs::create([
             'slogan' => $request->slogan,
             'description' => $request->description,
-            'created_by' => $request->created_by,
+            'created_by' => Auth::user()->id,
             'status' => 1, // Set default status to active for new entries
         ]);
 
@@ -36,14 +36,13 @@ class AboutUsController extends Controller
         $request->validate([
             'slogan' => 'required|string',
             'description' => 'required|string',
-            'edited_by' => 'required|string',
         ]);
 
         $entry = AboutUs::findOrFail($id);
         $entry->update([
             'slogan' => $request->slogan,
             'description' => $request->description,
-            'edited_by' => $request->edited_by,
+            'edited_by' => Auth::user()->id,
         ]);
 
         return redirect()->route('admin.about')->with('success', 'Entry updated successfully.');

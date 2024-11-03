@@ -17,16 +17,16 @@
                     <span class="dropdown-toggle">Pages</span>
                 </a>
                 <div class="dropdown-menu m-0">
-                    <a href="{{ route('blog.index') }}" class="dropdown-item">Blogs</a>
-                    <a href="{{ route('team.index') }}" class="dropdown-item">Our team</a>
+                    {{-- <a href="{{ route('blog.index') }}" class="dropdown-item">Blogs</a> --}}
+                    {{-- <a href="{{ route('team.index') }}" class="dropdown-item">Our team</a> --}}
                     <a href="{{ route('testimonial.index') }}" class="dropdown-item">Testimonial</a>
-                    <a href="{{ route('offer.index') }}" class="dropdown-item">Our offer</a>
+                    {{-- <a href="{{ route('offer.index') }}" class="dropdown-item">Our offer</a> --}}
                     <a href="{{ route('faqs.index') }}" class="dropdown-item">FAQs</a>
                     {{-- <a href="404.html" class="dropdown-item">404 Page</a> --}}
                 </div>
             </div>
             <a href="{{ route('contact.index') }}" class="nav-item nav-link">Contact Us</a>
         </div>
-        <a href="{{ route('started.index') }}" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Get Started</a>
+        {{-- <a href="{{ route('started.index') }}" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Get Started</a> --}}
     </div>
 </nav>

@@ -318,10 +318,29 @@ return [
             'label_color' => 'success',
         ],
         [
-            'text' => 'About',
-            'url' => 'admin/about',
+            'text' => 'About us',
             'icon' => 'fas fa-info-circle',
             'label_color' => 'success',
+
+            'submenu' => [
+                [
+                    'text' => 'About us',
+                    'url'  => 'admin/about',
+                    'can'  => '',
+                ],
+                [
+                    'text' => 'Business Consulting',
+                    'url'  => 'admin/business-consulting',
+                    'can'  => '',
+
+                ],
+                [
+                    'text' => 'Year Of Expertise',
+                    'url'  => 'admin/expertise',
+                    'can'  => '',
+
+                ],
+            ],
         ],
         [
             'text' => 'Services',

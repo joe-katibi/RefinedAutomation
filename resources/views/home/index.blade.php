@@ -40,15 +40,15 @@
         <!-- Features End -->
 
         <!-- Offer Start -->
-        <section id="offer">
+        {{-- <section id="offer">
             @include('offer.offer')
-        </section>
+        </section> --}}
         <!-- Offer End -->
 
         <!-- Blog Start -->
-        <section id="blog">
+        {{-- <section id="blog">
             @include('blog.blog')
-        </section>
+        </section> --}}
         <!-- Blog End -->
 
         <!-- FAQs Start -->
@@ -58,9 +58,9 @@
         <!-- FAQs End -->
 
         <!-- Team Start -->
-        <section id="team">
+        {{-- <section id="team">
              @include('team.team')
-        </section>
+        </section> --}}
         <!-- Team End -->
 
         <!-- Testimonial Start -->

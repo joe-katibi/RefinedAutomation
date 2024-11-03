@@ -12,7 +12,7 @@
         <!-- Spinner End -->
 
         <!-- Topbar Start -->
-        @include('topbar.topbar')
+        {{-- @include('topbar.topbar') --}}
         <!-- Topbar End -->
 
         <!-- Navbar & Hero Start -->

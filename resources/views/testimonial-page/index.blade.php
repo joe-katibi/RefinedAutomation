@@ -12,7 +12,7 @@
         <!-- Spinner End -->
 
         <!-- Topbar Start -->
-        @include('topbar.topbar')
+        {{-- @include('topbar.topbar') --}}
         <!-- Topbar End -->
 
 
@@ -30,7 +30,7 @@
                         <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Pages</a></li>
                         <li class="breadcrumb-item active text-primary">Testimonial</li>
-                    </ol>    
+                    </ol>
                 </div>
             </div>
             <!-- Header End -->
@@ -47,7 +47,7 @@
          <!-- Footer Start -->
          @include('footer.footer')
          <!-- Footer End -->
- 
+
          <!-- Copyright Start -->
          @include('copyright.copyright')
          <!-- Copyright End -->
@@ -55,9 +55,9 @@
 
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+        <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 
-        
+
         <!-- JavaScript Libraries -->
         @include('script.script')
     </body>

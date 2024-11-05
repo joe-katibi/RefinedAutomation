@@ -19,7 +19,7 @@
                 <div class="dropdown-menu m-0">
                     {{-- <a href="{{ route('blog.index') }}" class="dropdown-item">Blogs</a> --}}
                     {{-- <a href="{{ route('team.index') }}" class="dropdown-item">Our team</a> --}}
-                    <a href="{{ route('testimonial.index') }}" class="dropdown-item">Testimonial</a>
+                    {{-- <a href="{{ route('testimonial.index') }}" class="dropdown-item">Testimonial</a> --}}
                     {{-- <a href="{{ route('offer.index') }}" class="dropdown-item">Our offer</a> --}}
                     <a href="{{ route('faqs.index') }}" class="dropdown-item">FAQs</a>
                     {{-- <a href="404.html" class="dropdown-item">404 Page</a> --}}

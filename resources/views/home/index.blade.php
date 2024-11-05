@@ -64,9 +64,9 @@
         <!-- Team End -->
 
         <!-- Testimonial Start -->
-        <section id="testimonial">
+        {{-- <section id="testimonial">
           @include('testimonial.testimonial')
-        </section>
+        </section> --}}
         <!-- Testimonial End -->
 
         <!-- Footer Start -->

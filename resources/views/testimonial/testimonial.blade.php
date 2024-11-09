@@ -14,7 +14,7 @@
                     <i class="fas fa-quote-left fa-2x"></i>
                 </div>
                 <div class="testimonial-img">
-                    <img src="img/testimonial-1.jpg" class="img-fluid" alt="Image">
+                    <img src="img/person-vector-1.jpg" class="img-fluid" alt="Image">
                 </div>
                 <div class="testimonial-text">
                     <p class="mb-0">"Refined Automations transformed our business processes seamlessly. Their expertise in automation saved us countless hours and resources!"
@@ -42,7 +42,7 @@
                     <i class="fas fa-quote-left fa-2x"></i>
                 </div>
                 <div class="testimonial-img">
-                    <img src="img/testimonial-2.jpg" class="img-fluid" alt="Image">
+                    <img src="img/person-vector-2.jpg" class="img-fluid" alt="Image">
                 </div>
                 <div class="testimonial-text">
                     <p class="mb-0">"Their web-based solutions brought our systems to life. The team delivered a custom platform that perfectly met our needs!"
@@ -70,7 +70,7 @@
                     <i class="fas fa-quote-left fa-2x"></i>
                 </div>
                 <div class="testimonial-img">
-                    <img src="img/testimonial-3.jpg" class="img-fluid" alt="Image">
+                    <img src="img/person-vector-1.jpg" class="img-fluid" alt="Image">
                 </div>
                 <div class="testimonial-text">
                     <p class="mb-0">"Refined Automations truly understood our vision and built an API integration that streamlined our entire workflow. Fantastic work!"
@@ -98,7 +98,7 @@
                     <i class="fas fa-quote-left fa-2x"></i>
                 </div>
                 <div class="testimonial-img">
-                    <img src="img/testimonial-2.jpg" class="img-fluid" alt="Image">
+                    <img src="img/person-vector-1.jpg" class="img-fluid" alt="Image">
                 </div>
                 <div class="testimonial-text">
                     <p class="mb-0">"Their consulting services helped us identify bottlenecks and create a clear digital strategy that boosted our productivity. Highly recommend!"
